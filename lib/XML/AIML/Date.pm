@@ -3,16 +3,12 @@ use Moose;
 use namespace::autoclean;
 use XML::Toolkit;
 
-has 'format' => (
+has 'text' => (
      isa         => 'Str',
-     is          => 'ro',   
+     is          => 'rw',   
      traits      => [ 'XML'],
      description => {
-        Prefix => "",
-        LocalName => "format",
-        node_type => "attribute",
-        Name => "format",
-        NamespaceURI => "",
+        node_type => "character",
         sort_order => 0,
      },
 );

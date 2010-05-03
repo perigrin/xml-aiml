@@ -1,4 +1,4 @@
-package XML::AIML::Li;
+package XML::AIML::Get_likes;
 use Moose;
 use namespace::autoclean;
 use XML::Toolkit;

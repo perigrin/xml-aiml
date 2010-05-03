@@ -1,20 +1,20 @@
-package XML::AIML::Random;
+package XML::AIML::Gossip;
 use Moose;
 use namespace::autoclean;
 use XML::Toolkit;
 
-has 'li_collection' => (
-     isa         => 'ArrayRef[XML::AIML::Li]',
-     is          => 'ro',     init_arg    => 'lis',
+has 'set_collection' => (
+     isa         => 'ArrayRef[XML::AIML::Set]',
+     is          => 'ro',     init_arg    => 'sets',
      traits      => [qw(XML Array)],
      lazy        => 1,
      auto_deref  => 1,
      default     => sub { [] },
-     handles    => { add_li => ['push'] },     description => {
+     handles    => { add_set => ['push'] },     description => {
         Prefix => "",
-        LocalName => "li",
+        LocalName => "set",
         node_type => "child",
-        Name => "li",
+        Name => "set",
         NamespaceURI => "",
         sort_order => 0,
      },

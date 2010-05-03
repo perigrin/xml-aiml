@@ -1,4 +1,4 @@
-package XML::AIML::Thatstar;
+package XML::AIML::Justhat;
 use Moose;
 use namespace::autoclean;
 use XML::Toolkit;

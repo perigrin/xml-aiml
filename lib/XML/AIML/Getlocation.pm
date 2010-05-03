@@ -1,4 +1,4 @@
-package XML::AIML::Li;
+package XML::AIML::Getlocation;
 use Moose;
 use namespace::autoclean;
 use XML::Toolkit;

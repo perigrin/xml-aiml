@@ -35,22 +35,6 @@ has 'template_collection' => (
         sort_order => 1,
      },
 );
-has 'that_collection' => (
-     isa         => 'ArrayRef[XML::AIML::That]',
-     is          => 'ro',     init_arg    => 'thats',
-     traits      => [qw(XML Array)],
-     lazy        => 1,
-     auto_deref  => 1,
-     default     => sub { [] },
-     handles    => { add_that => ['push'] },     description => {
-        Prefix => "",
-        LocalName => "that",
-        node_type => "child",
-        Name => "that",
-        NamespaceURI => "",
-        sort_order => 2,
-     },
-);
 1;
 
 __END__

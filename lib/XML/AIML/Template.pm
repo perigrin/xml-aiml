@@ -19,22 +19,6 @@ has 'bot_collection' => (
         sort_order => 0,
      },
 );
-has 'BR_collection' => (
-     isa         => 'ArrayRef[XML::AIML::BR]',
-     is          => 'ro',     init_arg    => 'BRs',
-     traits      => [qw(XML Array)],
-     lazy        => 1,
-     auto_deref  => 1,
-     default     => sub { [] },
-     handles    => { add_BR => ['push'] },     description => {
-        Prefix => "",
-        LocalName => "BR",
-        node_type => "child",
-        Name => "BR",
-        NamespaceURI => "",
-        sort_order => 1,
-     },
-);
 has 'get_collection' => (
      isa         => 'ArrayRef[XML::AIML::Get]',
      is          => 'ro',     init_arg    => 'gets',
@@ -48,21 +32,37 @@ has 'get_collection' => (
         node_type => "child",
         Name => "get",
         NamespaceURI => "",
-        sort_order => 2,
+        sort_order => 1,
      },
 );
-has 'person_collection' => (
-     isa         => 'ArrayRef[XML::AIML::Person]',
-     is          => 'ro',     init_arg    => 'persons',
+has 'getjob_collection' => (
+     isa         => 'ArrayRef[XML::AIML::Getjob]',
+     is          => 'ro',     init_arg    => 'getjobs',
      traits      => [qw(XML Array)],
      lazy        => 1,
      auto_deref  => 1,
      default     => sub { [] },
-     handles    => { add_person => ['push'] },     description => {
+     handles    => { add_getjob => ['push'] },     description => {
         Prefix => "",
-        LocalName => "person",
+        LocalName => "getjob",
         node_type => "child",
-        Name => "person",
+        Name => "getjob",
+        NamespaceURI => "",
+        sort_order => 2,
+     },
+);
+has 'id_collection' => (
+     isa         => 'ArrayRef[XML::AIML::Id]',
+     is          => 'ro',     init_arg    => 'ids',
+     traits      => [qw(XML Array)],
+     lazy        => 1,
+     auto_deref  => 1,
+     default     => sub { [] },
+     handles    => { add_id => ['push'] },     description => {
+        Prefix => "",
+        LocalName => "id",
+        node_type => "child",
+        Name => "id",
         NamespaceURI => "",
         sort_order => 3,
      },
@@ -83,18 +83,18 @@ has 'random_collection' => (
         sort_order => 4,
      },
 );
-has 'set_collection' => (
-     isa         => 'ArrayRef[XML::AIML::Set]',
-     is          => 'ro',     init_arg    => 'sets',
+has 'sr_collection' => (
+     isa         => 'ArrayRef[XML::AIML::Sr]',
+     is          => 'ro',     init_arg    => 'srs',
      traits      => [qw(XML Array)],
      lazy        => 1,
      auto_deref  => 1,
      default     => sub { [] },
-     handles    => { add_set => ['push'] },     description => {
+     handles    => { add_sr => ['push'] },     description => {
         Prefix => "",
-        LocalName => "set",
+        LocalName => "sr",
         node_type => "child",
-        Name => "set",
+        Name => "sr",
         NamespaceURI => "",
         sort_order => 5,
      },
@@ -115,29 +115,13 @@ has 'srai_collection' => (
         sort_order => 6,
      },
 );
-has 'star_collection' => (
-     isa         => 'ArrayRef[XML::AIML::Star]',
-     is          => 'ro',     init_arg    => 'stars',
-     traits      => [qw(XML Array)],
-     lazy        => 1,
-     auto_deref  => 1,
-     default     => sub { [] },
-     handles    => { add_star => ['push'] },     description => {
-        Prefix => "",
-        LocalName => "star",
-        node_type => "child",
-        Name => "star",
-        NamespaceURI => "",
-        sort_order => 7,
-     },
-);
 has 'text' => (
      isa         => 'Str',
      is          => 'rw',   
      traits      => [ 'XML'],
      description => {
         node_type => "character",
-        sort_order => 8,
+        sort_order => 7,
      },
 );
 has 'that_collection' => (
@@ -153,23 +137,7 @@ has 'that_collection' => (
         node_type => "child",
         Name => "that",
         NamespaceURI => "",
-        sort_order => 9,
-     },
-);
-has 'thatstar_collection' => (
-     isa         => 'ArrayRef[XML::AIML::Thatstar]',
-     is          => 'ro',     init_arg    => 'thatstars',
-     traits      => [qw(XML Array)],
-     lazy        => 1,
-     auto_deref  => 1,
-     default     => sub { [] },
-     handles    => { add_thatstar => ['push'] },     description => {
-        Prefix => "",
-        LocalName => "thatstar",
-        node_type => "child",
-        Name => "thatstar",
-        NamespaceURI => "",
-        sort_order => 10,
+        sort_order => 8,
      },
 );
 has 'think_collection' => (
@@ -185,7 +153,7 @@ has 'think_collection' => (
         node_type => "child",
         Name => "think",
         NamespaceURI => "",
-        sort_order => 11,
+        sort_order => 9,
      },
 );
 1;

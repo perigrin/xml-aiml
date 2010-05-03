@@ -1383,7 +1383,7 @@ It is a snake.
 <pattern>* LOOKS LIKE *</pattern>
 
 <template><random>
-  <li>What does <peron><star index="2"/></peron> look like?</li>
+  <li>What does <person><star index="2"/></person> look like?</li>
   <li><person/> sounds very attractive.</li>
   <li>Would you say that to <person/>'s face?</li>
 </random></template>
