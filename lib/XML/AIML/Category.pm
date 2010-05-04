@@ -2,16 +2,17 @@ package XML::AIML::Category;
 use Moose;
 use namespace::autoclean;
 use XML::Toolkit;
-
-has 'pattern_collection' => (
-    isa         => 'ArrayRef[XML::AIML::Pattern]',
-    is          => 'ro',
-    init_arg    => 'patterns',
-    traits      => [qw(XML Array)],
+use MooseX::Aliases;
+has 'pattern' => (
+    isa         => 'XML::AIML::Pattern',
+    reader      => '_pattern',
+    init_arg    => 'pattern',
+    writer      => 'add_pattern',
+    alias       => 'patterns',
+    traits      => [qw(XML)],
     lazy        => 1,
-    auto_deref  => 1,
-    default     => sub { [] },
-    handles     => { add_pattern => ['push'] },
+    default     => sub { confess 'required' },
+    handles     => { pattern => 'text' },
     description => {
         Prefix       => "",
         LocalName    => "pattern",
@@ -21,15 +22,16 @@ has 'pattern_collection' => (
         sort_order   => 0,
     },
 );
-has 'template_collection' => (
-    isa         => 'ArrayRef[XML::AIML::Template]',
-    is          => 'ro',
-    init_arg    => 'templates',
-    traits      => [qw(XML Array)],
+has 'template' => (
+    isa         => 'XML::AIML::Template',
+    init_arg    => 'template',
+    reader      => '_template',
+    writer      => 'add_template',
+    alias       => ['templates'],
+    traits      => [qw(XML)],
     lazy        => 1,
-    auto_deref  => 1,
-    default     => sub { [] },
-    handles     => { add_template => ['push'] },
+    default     => sub { confess 'required' },
+    handles     => { template => 'text' },
     description => {
         Prefix       => "",
         LocalName    => "template",
