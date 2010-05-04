@@ -4,17 +4,17 @@ use namespace::autoclean;
 use XML::Toolkit;
 
 has 'src' => (
-     isa         => 'Str',
-     is          => 'ro',   
-     traits      => [ 'XML'],
-     description => {
-        Prefix => "",
-        LocalName => "src",
-        node_type => "attribute",
-        Name => "src",
+    isa         => 'Str',
+    is          => 'ro',
+    traits      => ['XML'],
+    description => {
+        Prefix       => "",
+        LocalName    => "src",
+        node_type    => "attribute",
+        Name         => "src",
         NamespaceURI => "",
-        sort_order => 0,
-     },
+        sort_order   => 0,
+    },
 );
 1;
 
