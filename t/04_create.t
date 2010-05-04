@@ -3,11 +3,13 @@ use strict;
 use Test::More;
 use Test::XML;
 
+use XML::AIML;
 use aliased 'XML::AIML::Aiml';
 use aliased 'XML::AIML::Category';
 use aliased 'XML::AIML::Pattern';
 use aliased 'XML::AIML::Template';
 use aliased 'XML::Toolkit::Generator';
+
 ok(
     my $root = Aiml->new(
         categories => [
@@ -16,12 +18,13 @@ ok(
                 template => Template->new( text => 'Hi there!' ),
             ),
         ]
-    )
+    ),
+    'built AIML'
 );
 
-ok( my $generator = Generator->new(), 'Build XML::Toolkit::Generator' );
-$generator->render_object($root);
-my $xml = q[<?xml version="1.0" encoding="UTF-8"?>
+is_xml(
+    $root->to_xml,
+    q[<?xml version="1.0" encoding="UTF-8"?>
 <aiml version="1.0">
  
 <category>
@@ -30,7 +33,6 @@ my $xml = q[<?xml version="1.0" encoding="UTF-8"?>
 </category>
  
 </aiml>
-];
-is_xml( $xml, join( '', $generator->output ), 'XML compares' );
-
+], 'rendered correctly'
+);
 done_testing;

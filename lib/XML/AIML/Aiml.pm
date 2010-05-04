@@ -2,6 +2,7 @@ package XML::AIML::Aiml;
 use Moose;
 use namespace::autoclean;
 use XML::Toolkit;
+use XML::AIML;
 use MooseX::Aliases;
 
 has version => (
@@ -39,6 +40,7 @@ has 'category_collection' => (
         sort_order   => 0,
     },
 );
-1;
 
+sub to_xml { XML::AIML->render_xml(shift) }
+1;
 __END__
